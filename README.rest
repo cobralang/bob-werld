@@ -1,0 +1,16 @@
+===============
+Installation
+===============
+
+Install `Git<https://git-scm.com/downloads>`_
+
+Install `Python<https://www.python.org/downloads>`_
+
+Run the command:
+
+``git clone https://github.com/cobralang/bob-werld.git``
+
+
+To download the music (the installer does this automatically):
+
+``git clone -b music https://github.com/cobralang/bob-werld.git``
