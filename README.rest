@@ -2,9 +2,9 @@
 Installation
 ===============
 
-Install `Git<https://git-scm.com/downloads>`_
+Install `Git <https://git-scm.com/downloads>`_
 
-Install `Python<https://www.python.org/downloads>`_
+Install `Python <https://www.python.org/downloads>`_
 
 Run the command:
 
