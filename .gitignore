@@ -1,0 +1,7 @@
+bin
+pyvenv.cfg
+lib
+include
+settings.pkl
+music
+__pycache__
