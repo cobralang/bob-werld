@@ -4,38 +4,34 @@
 
 import sys
 import os
-import time
 try:
     import pickle
     import requests
     import simpleaudio
     import shutil
+    import wget
 except:
     if sys.platform == 'win32':
-        os.system('pip install simpleaudio')
-        os.system('pip install requests')
-        os.system('pip install shutil')
-        os.system('pip install pickle')
+        os.system('pip instsall simpleaudio requests shutil pickle wget')
         import simpleaudio
         import requests
         import shutil
         import pickle
+        import wget
     elif sys.platform == 'linux':
-        os.system('pip3 install simpleaudio')
-        os.system('pip3 install requests')
-        os.system('pip3 install shutil')
-        os.system('pip3 install pickle')
+        os.system('pip3 install simpleaudio requests shutil pickle wget')
         import simpleaudio
         import requests
         import shutil
         import pickle
+        import wget
     elif sys.platform == 'darwin':
-        os.system('pip3 install simpleaudio')
-        os.system('pip3 install requests')
+        os.system('pip3 install simpleaudio requests shutil pickle wget')
         import simpleaudio
         import requests
         import shutil
         import pickle
+        import wget
     else:
         print('Unknown OS')
         exit()
@@ -88,13 +84,21 @@ else:
     exit()
 
 
-if disableMusic == True:
+if disableMusic:
     print("Detected disableMusic variable, music will not play.")
 else:
-    if streamMusic == True:
+    if streamMusic:
         print("Music will be streamed.")
-        os.system("git clone -b music https://github.com/cobralang/bob-werld.git")
-        os.rename("bob-werld", "music")
+        os.makedirs('music', exist_ok=True)
+        os.chdir('music')
+        print("Fetching music from GitHub...")
+        wget.download('https://github.com/cobralang/bob-werld/blob/music/Bob.wav?raw=true')
+        wget.download('https://github.com/cobralang/bob-werld/blob/music/menyoo.wav?raw=true')
+        wget.download('https://github.com/cobralang/bob-werld/blob/music/jump.wav?raw=true')
+        wget.download('https://github.com/cobralang/bob-werld/blob/music/crash.wav?raw=true')
+        wget.download('https://github.com/cobralang/bob-werld/blob/music/build-n-break.wav?raw=true')
+        wget.download('https://github.com/cobralang/bob-werld/blob/music/bob_world_menu_theme.wav?raw=true')
+        os.chdir('..')
         menu_theme = simpleaudio.WaveObject.from_wave_file("music/bob_world_menu_theme.wav")
         menyoo = simpleaudio.WaveObject.from_wave_file("music/menyoo.wav")
         jump = simpleaudio.WaveObject.from_wave_file("music/jump.wav")
@@ -102,7 +106,7 @@ else:
         buildnbreak = simpleaudio.WaveObject.from_wave_file("music/build-n-break.wav")
         bob = simpleaudio.WaveObject.from_wave_file("music/Bob.wav")
         shutil.rmtree("music")
-    elif streamMusic == False:
+    elif streamMusic is False:
         menu_theme = simpleaudio.WaveObject.from_wave_file("music/bob_world_menu_theme.wav")
         menyoo = simpleaudio.WaveObject.from_wave_file("music/menyoo.wav")
         jump = simpleaudio.WaveObject.from_wave_file("music/jump.wav")
@@ -111,4 +115,5 @@ else:
         bob = simpleaudio.WaveObject.from_wave_file("music/Bob.wav")
 
 
-
+menu_theme.play()
+input()
