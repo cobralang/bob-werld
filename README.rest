@@ -1,4 +1,3 @@
-[![Pylint](https://github.com/cobralang/bob-werld/actions/workflows/pylint.yml/badge.svg)](https://github.com/cobralang/bob-werld/actions/workflows/pylint.yml)
 
 
 
