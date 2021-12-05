@@ -219,6 +219,18 @@ if input() == "1":
             print("It's a key.")
             print("You pick up the key.")
             print_with_color("The key is glowing in the dark. You feel a bit safer.", "cyan")
+            print_with_color("You hear a loud crash.", "red")
+            print("A creature jumps out of the darkness.")
+            print("It is not a spider, but a giant rat.")
+            print("START OF CREATURE DIALOGUE")
+            print("The rat says, 'Hello there! I'm Bob. I'm a giant rat.")
+            print("Welcome to my land. This is bob werld, and I own it.")
+            print_with_color("You hear a sound.", "red")
+            playing_audio = buildnbreak.play()
+            print("The floor starts to shake.")
+            print_with_color("It is as is if an earthquake is occurring.", "cyan")
+            print_with_color("Everything is falling.", "magenta")
+            print("You are still. Everything is still.")
 
         else:
             print("You walk into the room. It's dark.")
