@@ -53,10 +53,7 @@ if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main
         print("Done! Please start the game again.")
         exit()
     else:
-        print("You are already up to date!")
-else:
-    print("Update check failed (No internet, or update server is down!)")
-
+        print("No updates found!")
 def die():
     if disableMusic == False:
         playing_audio.stop()
