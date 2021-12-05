@@ -44,6 +44,8 @@ except:
         exit()
 import savelib
 
+
+"""
 if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main.py").status_code == 200:
     print("Connected to update server!")
     print("Checking for updates...")
@@ -54,6 +56,7 @@ if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main
         exit()
     else:
         print("No updates found!")
+"""
 def die():
     if disableMusic == False:
         playing_audio.stop()
@@ -213,24 +216,24 @@ if input() == "1":
         print("1. Left")
         print("2. Right")
         if input() == "1":
-            print("You walk into the door to your left.")
-            print("You walk into the room. It smells like a dumpster and sewer combined.")
-            print("There is a mysterious looking object on the floor.")
-            print("It's a key.")
-            print("You pick up the key.")
-            print_with_color("The key is glowing in the dark. You feel a bit safer.", "cyan")
-            print_with_color("You hear a loud crash.", "red")
-            print("A creature jumps out of the darkness.")
-            print("It is not a spider, but a giant rat.")
-            print("START OF CREATURE DIALOGUE")
-            print("The rat says, 'Hello there! I'm Bob. I'm a giant rat.")
-            print("Welcome to my land. This is bob werld, and I own it.")
-            print_with_color("You hear a sound.", "red")
+            print_with_wait_no_color("You walk into the door to your left.", 1.5)
+            print_with_wait_no_color("You walk into the room. It smells like a dumpster and sewer combined.", 1.5)
+            print_with_wait_no_color("There is a mysterious looking object on the floor.", 1.5)
+            print_with_wait_no_color("It's a key.", 1.5)
+            print_with_wait_no_color("You pick up the key.", 1.5)
+            print_with_wait("The key is glowing in the dark. You feel a bit safer.", "cyan", 1.5)
+            print_with_wait("You hear a loud crash.", "red", 1.5)
+            print_with_wait_no_color("A creature jumps out of the darkness.", 1.5)
+            print_with_wait_no_color("It is not a spider, but a giant rat.", 1.5)
+            print_with_wait_no_color("START OF CREATURE DIALOGUE", 1.5)
+            print_with_wait_no_color("The rat says, 'Hello there! I'm Bob. I'm a giant rat.", 1.5)
+            print_with_wait_no_color("Welcome to my land. This is bob werld, and I own it.", 1.5)
+            print_with_wait("You hear a sound.", "red", 1.5)
             playing_audio = buildnbreak.play()
-            print("The floor starts to shake.")
-            print_with_color("It is as is if an earthquake is occurring.", "cyan")
-            print_with_color("Everything is falling.", "magenta")
-            print("You are still. Everything is still.")
+            print_with_wait_no_color("The floor starts to shake.", 1.5)
+            print_with_wait("It is as is if an earthquake is occurring.", "cyan", 1.5)
+            print_with_wait("Everything is falling.", "magenta", 1.5)
+            print_with_wait_no_color("You are still. Everything is still.", 1)
 
         else:
             print("You walk into the room. It's dark.")
