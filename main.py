@@ -1,14 +1,18 @@
-    
+import os    
 
 #Pls dont change this.
 version = "0.0.1"
-client = "desktop"
+IS_RUNNING_ON_REPL = os.getenv('IS_RUNNING_ON_REPL')
+if IS_RUNNING_ON_REPL == "1":
+	client = "web"
+	print("WEB CLIENT")
+else:
+	client = "desktop"
 
 import sys
-import os
 import time
-if client == "web":
-    os.system("git pull")
+##if client == "web":
+#    os.system("git pull")
 
 if sys.platform == 'win32':
     os.system('cls')
@@ -129,6 +133,7 @@ print("Welcome to Bob Werld!")
 print("NOTE: THIS IS BETA SOFTWARE. USE AT YOUR OWN RISK.")
 print("Build " + version)
 disableMusic = False
+streamMusic = False
 if savelib.loadslot(1, "settings.pkl") == 'true':
     print("Setting streamMusic variable to true")
     streamMusic = True
@@ -139,7 +144,7 @@ if savelib.loadslot(1, "settings.pkl") == 'true':
         streamMusic = False
         disableMusic = True
 if client == "web":
-    disableMusic == True
+  disableMusic == True
 
 elif savelib.loadslot(1, "settings.pkl") == 'false':
     print("Setting streamMusic variable to false")
