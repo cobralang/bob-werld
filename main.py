@@ -6,7 +6,10 @@ version = "0.0.1"
 import sys
 import os
 import time
-os.system('clear')
+if sys.platform == 'win32':
+    os.system('cls')
+else:
+    os.system('clear')
 try:
     import pickle
     import requests
@@ -16,13 +19,8 @@ try:
     import random
 except:
     if sys.platform == 'win32':
-        os.system('pip instsall simpleaudio requests shutil pickle wget random')
-        import simpleaudio
-        import requests
-        import shutil
-        import pickle
-        import wget
-        import random
+        print('Please type "python -m pip install simpleaudio requests shutil pickle wget random && python3 -m pip install simpleaudio requests shutil pickle wget random" in command prompt.')
+        exit()
     elif sys.platform == 'linux':
         os.system('pip3 install simpleaudio requests shutil pickle wget random')
         import simpleaudio
