@@ -5,6 +5,7 @@ version = "0.0.1"
 
 import sys
 import os
+import time
 os.system('clear')
 try:
     import pickle
@@ -49,7 +50,8 @@ if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main
     if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main.py").text != open("main.py").read():
         print("Updating...")
         os.system('git pull')
-        print("Done!")
+        print("Done! Please start the game again.")
+        exit()
 
 def die():
     if disableMusic == False:
@@ -58,6 +60,31 @@ def die():
     print("Press enter to continue...")
     input()
     exit()
+
+def print_with_color(text, color):
+    if color == 'red':
+        print('\033[91m' + text + '\033[0m')
+    elif color == 'green':
+        print('\033[92m' + text + '\033[0m')
+    elif color == 'yellow':
+        print('\033[93m' + text + '\033[0m')
+    elif color == 'blue':
+        print('\033[94m' + text + '\033[0m')
+    elif color == 'magenta':
+        print('\033[95m' + text + '\033[0m')
+    elif color == 'cyan':
+        print('\033[96m' + text + '\033[0m')
+    elif color == 'white':
+        print('\033[97m' + text + '\033[0m')
+    elif color == 'black':
+        print('\033[90m' + text + '\033[0m')
+def print_with_wait(text, color, wait):
+    print_with_color(text, color)
+    time.sleep(wait)
+
+def print_with_wait_no_color(text, wait):
+    print(text)
+    time.sleep(wait)
 
 def setup():
     musictype = input("Would you like to stream music or download it? (s/d) (you need to install Git) ")
@@ -93,7 +120,7 @@ except:
 
 print("Welcome to Bob Werld!")
 print("NOTE: THIS IS BETA SOFTWARE. USE AT YOUR OWN RISK.")
-print("DEV BUILD 5.2.9")
+print("Build " + version)
 disableMusic = False
 if savelib.loadslot(1, "settings.pkl") == 'true':
     print("Setting streamMusic variable to true")
@@ -167,23 +194,29 @@ if input() == "1":
     print("START OF CREATURE DIALOGUE")
     print("The spider says, 'Hello there! I'm Bob. I'm a giant spider.")
     print("Welcome to my land. This is bob werld, and I own it.")
-    print("What is your name?'")
+    print("What is your name?")
     username = input()
     print("Hello, " + username + "!")
-    if input("What do you do? Run (1) or join bob? (2)") == "1":
+    if input("What do you do? Run (1) or join bob? (2) ") == "1":
         print("You hear bob yell, 'You're not going to run away from me, " + username + "! I'm going to eat you!'")
         print("Bob is faster than you. He catches up to you and eats you.")
         die()
-    elif input() == "2":
+    else:
         print("You join bob.")
         print("Bob and you walk into a dark room.")
         print("You see a door to your left and a door to your right.")
         print("Which one do you choose?")
-        print("Bob reccomends the left door.")
+        print("Bob recommends the left door.")
         print("1. Left")
         print("2. Right")
         if input() == "1":
             print("You walk into the door to your left.")
+            print("You walk into the room. It smells like a dumpster and sewer combined.")
+            print("There is a mysterious looking object on the floor.")
+            print("It's a key.")
+            print("You pick up the key.")
+            print_with_color("The key is glowing in the dark. You feel a bit safer.", "cyan")
+
         else:
             print("You walk into the room. It's dark.")
             print("The room flashes, and then you cease to exist.")
