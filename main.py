@@ -26,7 +26,11 @@ try:
     import wget
     import random
 except:
-    if sys.platform == 'win32':
+    if client == "web":
+	import requests
+	import pickle
+	import random
+    elif sys.platform == 'win32':
         print('Please type "python -m pip install simpleaudio requests shutil pickle wget random && python3 -m pip install simpleaudio requests shutil pickle wget random" in command prompt.')
         exit()
     elif sys.platform == 'linux':
