@@ -55,6 +55,7 @@ if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main
 
 def die():
     if disableMusic == False:
+        playing_audio.stop()
         bob.play()
     print("YOU DIED!")
     print("Press enter to continue...")
@@ -162,6 +163,7 @@ else:
         buildnbreak = simpleaudio.WaveObject.from_wave_file("music/build-n-break.wav")
         bob = simpleaudio.WaveObject.from_wave_file("music/Bob.wav")
         shutil.rmtree("music")
+        print("\n")
     elif streamMusic is False:
         menu_theme = simpleaudio.WaveObject.from_wave_file("music/bob_world_menu_theme.wav")
         menyoo = simpleaudio.WaveObject.from_wave_file("music/menyoo.wav")
