@@ -2,10 +2,14 @@
 
 #Pls dont change this.
 version = "0.0.1"
+client = "desktop"
 
 import sys
 import os
 import time
+if client == "web":
+    os.system("git pull")
+
 if sys.platform == 'win32':
     os.system('cls')
 else:
@@ -134,6 +138,8 @@ if savelib.loadslot(1, "settings.pkl") == 'true':
         print("No internet connection detected. Music will not play.")
         streamMusic = False
         disableMusic = True
+if client == "web":
+    disableMusic == True
 
 elif savelib.loadslot(1, "settings.pkl") == 'false':
     print("Setting streamMusic variable to false")
