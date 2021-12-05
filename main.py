@@ -47,7 +47,7 @@ import savelib
 if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main.py").status_code == 200:
     print("Connected to update server!")
     print("Checking for updates...")
-    if requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main.py").text not == open("main.py").read():
+    if not requests.get("https://raw.githubusercontent.com/cobralang/bob-werld/main/main.py").text == open("main.py").read():
         print("Updating...")
         os.system('git pull')
         print("Done! Please start the game again.")
