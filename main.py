@@ -22,21 +22,10 @@ except:
         print('Please type "python -m pip install simpleaudio requests shutil pickle wget random && python3 -m pip install simpleaudio requests shutil pickle wget random" in command prompt.')
         exit()
     elif sys.platform == 'linux':
-        os.system('pip3 install simpleaudio requests shutil pickle wget random')
-        import simpleaudio
-        import requests
-        import shutil
-        import pickle
-        import wget
-        import random
+        print('Please type "pip3 install simpleaudio requests shutil pickle wget random"')
+        exit()
     elif sys.platform == 'darwin':
-        os.system('pip3 install simpleaudio requests shutil pickle wget random')
-        import simpleaudio
-        import requests
-        import shutil
-        import pickle
-        import wget
-        import random
+        print('Please type "pip3 install simpleaudio requests shutil pickle wget random"')
     else:
         print('Unknown OS')
         exit()
