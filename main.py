@@ -1,4 +1,4 @@
-import os    
+import os
 
 #Pls dont change this.
 version = "0.0.1"
@@ -19,13 +19,13 @@ try:
     import random
 except:
     if sys.platform == 'win32':
-        print('Please type "python -m pip install simpleaudio requests shutil pickle wget random && python3 -m pip install simpleaudio requests shutil pickle wget random" in command prompt.')
+        print('Please type "python -m pip install simpleaudio requests shutil pickle wget random && python3 -m pip install simpleaudio requests shutil pickle wget random" and "python -m pip install simpleaudio" and "python3 -m pip install simpleaudio"')
         exit()
     elif sys.platform == 'linux':
-        print('Please type "pip3 install simpleaudio requests shutil pickle wget random"')
+        print('Please type "pip3 install simpleaudio requests shutil pickle wget random" and "pip3 install simpleaudio"')
         exit()
     elif sys.platform == 'darwin':
-        print('Please type "pip3 install simpleaudio requests shutil pickle wget random"')
+        print('Please type "pip3 install simpleaudio requests shutil pickle wget random" and "pip3 install simpleaudio"')
         exit()
     else:
         print('Unknown OS')
@@ -100,7 +100,7 @@ def setup():
     print("Done!")
     print("Saving settings.pkl...")
     savelib.save("settings.pkl")
-    
+
 
 try:
     open('settings.pkl', 'rb')
@@ -116,21 +116,22 @@ print("NOTE: THIS IS BETA SOFTWARE. USE AT YOUR OWN RISK.")
 print("Build " + version)
 disableMusic = False
 streamMusic = False
-if savelib.loadslot(1, "settings.pkl") == 'true':
-    print("Setting streamMusic variable to true")
-    streamMusic = True
-    if requests.get('https://example.com').status_code == 200:
-        print("Internet connection established.")
-    else:
-        print("No internet connection detected. Music will not play.")
+try:
+    if savelib.loadslot(1, "settings.pkl") == 'true':
+        print("Setting streamMusic variable to true")
+        streamMusic = True
+        if requests.get('https://example.com').status_code == 200:
+            print("Internet connection established.")
+        else:
+            print("No internet connection detected. Music will not play.")
+            streamMusic = False
+            disableMusic = True
+
+
+    elif savelib.loadslot(1, "settings.pkl") == 'false':
+        print("Setting streamMusic variable to false")
         streamMusic = False
-        disableMusic = True
-
-
-elif savelib.loadslot(1, "settings.pkl") == 'false':
-    print("Setting streamMusic variable to false")
-    streamMusic = False
-else:
+except:
     print("Your settings.pkl is corrupted, please delete it and run the program again.")
     exit()
 
