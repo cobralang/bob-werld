@@ -2,17 +2,9 @@ import os
 
 #Pls dont change this.
 version = "0.0.1"
-IS_RUNNING_ON_REPL = os.getenv('IS_RUNNING_ON_REPL')
-if IS_RUNNING_ON_REPL == "1":
-	client = "web"
-	print("WEB CLIENT")
-else:
-	client = "desktop"
 
 import sys
 import time
-##if client == "web":
-#    os.system("git pull")
 
 if sys.platform == 'win32':
     os.system('cls')
@@ -26,11 +18,7 @@ try:
     import wget
     import random
 except:
-    if client == "web":
-	import requests
-	import pickle
-	import random
-    elif sys.platform == 'win32':
+    if sys.platform == 'win32':
         print('Please type "python -m pip install simpleaudio requests shutil pickle wget random && python3 -m pip install simpleaudio requests shutil pickle wget random" in command prompt.')
         exit()
     elif sys.platform == 'linux':
@@ -147,8 +135,7 @@ if savelib.loadslot(1, "settings.pkl") == 'true':
         print("No internet connection detected. Music will not play.")
         streamMusic = False
         disableMusic = True
-if client == "web":
-  disableMusic == True
+
 
 elif savelib.loadslot(1, "settings.pkl") == 'false':
     print("Setting streamMusic variable to false")
