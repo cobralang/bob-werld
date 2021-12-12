@@ -135,7 +135,6 @@ except:
     print("Your settings.pkl is corrupted, please delete it and run the program again.")
     exit()
 
-
 if disableMusic:
     print("Detected disableMusic variable, music will not play.")
 else:
