@@ -31,6 +31,7 @@ except:
         print('Unknown OS')
         exit()
 import savelib
+from printfunctions import *
 
 
 """
@@ -54,30 +55,6 @@ def die():
     input()
     exit()
 
-def print_with_color(text, color):
-    if color == 'red':
-        print('\033[91m' + text + '\033[0m')
-    elif color == 'green':
-        print('\033[92m' + text + '\033[0m')
-    elif color == 'yellow':
-        print('\033[93m' + text + '\033[0m')
-    elif color == 'blue':
-        print('\033[94m' + text + '\033[0m')
-    elif color == 'magenta':
-        print('\033[95m' + text + '\033[0m')
-    elif color == 'cyan':
-        print('\033[96m' + text + '\033[0m')
-    elif color == 'white':
-        print('\033[97m' + text + '\033[0m')
-    elif color == 'black':
-        print('\033[90m' + text + '\033[0m')
-def print_with_wait(text, color, wait):
-    print_with_color(text, color)
-    time.sleep(wait)
-
-def print_with_wait_no_color(text, wait):
-    print(text)
-    time.sleep(wait)
 
 def setup():
     musictype = input("Would you like to stream music or download it? (s/d) (you need to install Git) ")
