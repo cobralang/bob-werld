@@ -26,6 +26,7 @@ except:
         exit()
     elif sys.platform == 'darwin':
         print('Please type "pip3 install simpleaudio requests shutil pickle wget random"')
+        exit()
     else:
         print('Unknown OS')
         exit()
