@@ -1,7 +1,7 @@
 import os
 
 #Pls dont change this.
-version = "0.0.1"
+version = "0.3.8"
 
 import sys
 import time
